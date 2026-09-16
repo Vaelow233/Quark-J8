@@ -9,9 +9,7 @@ setOf(
     "bungee",
     "core",
     "fabric",
-    "paper",
     "sponge",
-    "velocity"
 ).forEach {
     subProject(it)
 }
@@ -25,8 +23,6 @@ setOf(
     "bukkit",
     "bungee",
     "gradle",
-    "paper",
-    "velocity"
 ).forEach {
     exampleProject(it)
 }
