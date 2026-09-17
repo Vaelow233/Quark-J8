@@ -1,8 +1,10 @@
 # Contributing Policy
 
-Hey, thanks for your interest in contributing to Quark! We appreciate your help and taking your time to contribute.
+> [!IMPORTANT]
+> This project is a Java 8 compatible fork of [Quark](https://github.com/BX-Team/Quark), which is used with plugins that designed to compatible with Java 8.
+> Please consider make contributions to the upstream repository. We'll sync it.
 
-Before you start, please first discuss the feature/bug you want to add with the owners and community at our [Discord](https://discord.gg/qNyybSSPm5) server. This will help us to understand your needs and provide you with the best possible solution.
+Hey, thanks for your interest in contributing to Quark-J8! We appreciate your help and taking your time to contribute.
 
 We have a few guidelines to follow when contributing to this project:
 
@@ -46,7 +48,6 @@ feat: add new feature
 - The `master` branch is the source of truth and should always reflect the latest stable release.
 - When creating a pull request, please provide a clear and concise description of the changes made.
 - If your pull request fixes an open issue, please reference the issue in the pull request description.
-- If your pull request adds new features, please consider creating a PR on the [website repository](https://github.com/BX-Team/website) that describes new feature.
 - Once your pull request is merged, you will be automatically added as a contributor to the project.
 
 Thank you for your contribution!

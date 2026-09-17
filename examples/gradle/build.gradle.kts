@@ -1,7 +1,7 @@
 plugins {
     id("java-library")
     id("com.gradleup.shadow") version "8.3.11"
-    id("org.bxteam.quark") // version "1.x.x" // <-- uncomment in your project and set the version
+    id("org.vaelow233.quark") // version "1.x.x" // <-- uncomment in your project and set the version
 }
 
 repositories {
@@ -47,7 +47,7 @@ tasks {
 // don't use the following section in your build file
 configurations.configureEach {
     resolutionStrategy.dependencySubstitution {
-        substitute(module("org.bxteam.quark:bukkit"))
+        substitute(module("org.vaelow233.quark:bukkit"))
             .using(project(":quark-bukkit"))
     }
 }

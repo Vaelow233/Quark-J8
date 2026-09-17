@@ -2,7 +2,7 @@ pluginManagement {
     includeBuild("gradle-plugin")
 }
 
-rootProject.name = "Quark"
+rootProject.name = "Quark-J8"
 
 setOf(
     "bukkit",

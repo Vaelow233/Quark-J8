@@ -30,7 +30,7 @@ jobs:
 
       - name: Update QuarkPlugin Version
         run: |
-          sed -i 's/private const val QUARK_VERSION: String = ".*"/private const val QUARK_VERSION: String = "${{ inputs.version }}"/g' gradle-plugin/src/org/bxteam/quark/gradle/QuarkPlugin.kt
+          sed -i 's/private const val QUARK_VERSION: String = ".*"/private const val QUARK_VERSION: String = "${{ inputs.version }}"/g' gradle-plugin/src/org/vaelow233/quark/gradle/QuarkPlugin.kt
 
       - name: Update Gradle Plugin Version
         run: |

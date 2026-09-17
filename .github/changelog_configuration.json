@@ -1,6 +1,6 @@
 {
   "template": "#{{CHANGELOG}}",
-  "commit_template": "- [`#{{SHORT_MERGE_SHA}}`](https://github.com/BX-Team/Quark/commit/#{{MERGE_SHA}}) #{{TITLE}}",
+  "commit_template": "- [`#{{SHORT_MERGE_SHA}}`](https://github.com/Vaelow233/Quark-J8/commit/#{{MERGE_SHA}}) #{{TITLE}}",
   "categories": [
     {
       "title": "## 🚀 Features",

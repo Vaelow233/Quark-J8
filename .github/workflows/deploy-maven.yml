@@ -1,9 +1,10 @@
-name: Deploy to BX Team Maven Repository
+name: Deploy to Maven Central
 
 on: [ workflow_dispatch, workflow_call ]
 
 jobs:
   build:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -29,8 +30,14 @@ jobs:
       - name: Make Gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Publish to BX Team Maven Repository
-        run: ./gradlew publish
+      - name: Publish libraries to Maven Central
         env:
-          REPO_USERNAME: ${{ secrets.REPO_USERNAME }}
-          REPO_PASSWORD: ${{ secrets.REPO_SECRET }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+        run: >-
+          ./gradlew
+          publishToSonatype
+          closeAndReleaseSonatypeStagingRepository
+          --no-daemon

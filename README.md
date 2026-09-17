@@ -1,23 +1,19 @@
 <div align="center">
 
-# Quark
-A lightweight, runtime dependency management system for plugins running on Minecraft server platforms.
+# Quark-J8
+Java 8 compatible runtime dependency management for Minecraft plugins.
 
 ![bukkit](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/bukkit_vector.svg)
 ![bungeecord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/bungeecord_vector.svg)
-![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)
 <br>
-![paper](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/paper_vector.svg)
+![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)
 ![sponge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/sponge_vector.svg)
-![velocity](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/velocity_vector.svg)
-
-[![Chat on Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg)](https://discord.gg/qNyybSSPm5)
-[![Read the Docs](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/generic_vector.svg)](https://bxteam.org/docs/quark)
 
 </div>
 
-> [!NOTE]
-> New version 2.0.0 coming soon with new features for your plugins. Stay tuned!
+> [!IMPORTANT]
+> This project is a Java 8 compatible fork of [Quark](https://github.com/BX-Team/Quark), which is used with plugins that designed to compatible with Java 8.
+> If your plugin is developing under Java 11 or later, consider using the upstream repository!
 
 ## ⚙️ Features
 
@@ -26,19 +22,18 @@ A lightweight, runtime dependency management system for plugins running on Minec
 - **📦 Package Relocation** - Relocate packages to avoid conflicts with other plugins or server dependencies
 - **🔒 Isolated Class Loading** - Load dependencies into isolated class loaders to prevent conflicts
 - **🐘 Gradle Plugin** - Seamless integration with Gradle and ShadowJar
-- **🎯 Platform Specific** - Dedicated implementations for **Bukkit**, **BungeeCord**, **Fabric**, **Paper**, **Sponge**  and **Velocity**
+- **🎯 Platform Specific** - Dedicated implementations for **Bukkit**, **BungeeCord**, **Fabric**, and **Sponge**
 
 ## 📥 Getting Started
 
-You can find information on how to install and use Quark on our [official website](https://bxteam.org/docs/quark/usage/installing).
+> [!NOTE]
+> The documentation is under development, stay tuned!
 
 ## 📦 Examples
-- [Bukkit Example](https://github.com/BX-Team/Quark/tree/master/examples/bukkit)
-- [Bungee Example](https://github.com/BX-Team/Quark/tree/master/examples/bungee)
-- [Gradle Example](https://github.com/BX-Team/Quark/tree/master/examples/gradle)
-- [Paper Example](https://github.com/BX-Team/Quark/tree/master/examples/paper)
-- [Velocity Example](https://github.com/BX-Team/Quark/tree/master/examples/velocity)
+- [Bukkit Example](https://github.com/Vaelow233/Quark-J8/tree/master/examples/bukkit)
+- [Bungee Example](https://github.com/Vaelow233/Quark-J8/tree/master/examples/bungee)
+- [Gradle Example](https://github.com/Vaelow233/Quark-J8/tree/master/examples/gradle)
 
 ## ⚖️ License ![Static Badge](https://img.shields.io/badge/license-GPL_3.0-lightgreen)
 
-Quark is licensed under the GNU General Public License v3.0. You can find the license [here](LICENSE).
+Quark-J8 is licensed under the GNU General Public License v3.0. You can find the license [here](LICENSE).
