@@ -43,11 +43,3 @@ tasks {
         minimize()
     }
 }
-
-// don't use the following section in your build file
-configurations.configureEach {
-    resolutionStrategy.dependencySubstitution {
-        substitute(module("org.vaelow233.quark:bukkit"))
-            .using(project(":quark-bukkit"))
-    }
-}
