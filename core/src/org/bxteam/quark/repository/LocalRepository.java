@@ -2,6 +2,7 @@ package org.bxteam.quark.repository;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -106,7 +107,7 @@ public class LocalRepository extends Repository {
     @NotNull
     public static LocalRepository of(@NotNull String repositoryPath) {
         requireNonNull(repositoryPath, "Repository path cannot be null");
-        return new LocalRepository(Path.of(repositoryPath));
+        return new LocalRepository(new File(repositoryPath).toPath());
     }
 
     /**
@@ -117,7 +118,7 @@ public class LocalRepository extends Repository {
     @NotNull
     public static LocalRepository mavenLocal() {
         String userHome = System.getProperty("user.home");
-        Path mavenLocalPath = Path.of(userHome, ".m2", "repository");
+        Path mavenLocalPath = new File(userHome).toPath().resolve(".m2").resolve("repository");
         return new LocalRepository(mavenLocalPath);
     }
 

@@ -13,10 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Collections;
+import java.util.*;
 
 import static java.util.Objects.requireNonNull;
 
@@ -29,7 +26,7 @@ import static java.util.Objects.requireNonNull;
  * JARs to avoid repeated processing.</p>
  */
 public class RelocationHandler {
-    private static final List<Dependency> RELOCATION_DEPENDENCIES = List.of(
+    private static final List<Dependency> RELOCATION_DEPENDENCIES = Arrays.asList(
             Dependency.of("org.ow2.asm", "asm", "9.7"),
             Dependency.of("org.ow2.asm", "asm-commons", "9.7"),
             Dependency.of("me.lucko", "jar-relocator", "1.7")
@@ -187,7 +184,7 @@ public class RelocationHandler {
      */
     @NotNull
     public static List<Dependency> getRelocationDependencies() {
-        return List.copyOf(RELOCATION_DEPENDENCIES);
+        return Collections.unmodifiableList(new ArrayList<>(RELOCATION_DEPENDENCIES));
     }
 
     @Override

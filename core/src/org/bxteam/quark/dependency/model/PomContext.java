@@ -5,6 +5,8 @@ import org.bxteam.quark.dependency.Dependency;
 import org.bxteam.quark.pom.model.PomInfo;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
@@ -26,7 +28,7 @@ public final class PomContext {
      */
     public PomContext(@NotNull PomInfo pomInfo, @NotNull List<Dependency> allDependencies) {
         requireNonNull(pomInfo, "POM info cannot be null");
-        allDependencies = List.copyOf(requireNonNull(allDependencies, "Dependencies cannot be null"));
+        allDependencies = Collections.unmodifiableList(new ArrayList<>(requireNonNull(allDependencies, "Dependencies cannot be null")));
         this.pomInfo = pomInfo;
         this.allDependencies = allDependencies;
     }

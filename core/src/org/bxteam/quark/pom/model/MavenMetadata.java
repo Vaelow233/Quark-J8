@@ -4,6 +4,8 @@ import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -32,7 +34,7 @@ public final class MavenMetadata {
      * @throws NullPointerException if versions is null
      */
     public MavenMetadata(@Nullable String groupId, @Nullable String artifactId, @Nullable String latest, @Nullable String release, @NotNull List<String> versions) {
-        versions = List.copyOf(versions);
+        versions = Collections.unmodifiableList(new ArrayList<>(versions));
         this.groupId = groupId;
         this.artifactId = artifactId;
         this.latest = latest;
@@ -71,7 +73,7 @@ public final class MavenMetadata {
     public boolean equals(Object obj) {
         if (obj == this) return true;
         if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (MavenMetadata) obj;
+        MavenMetadata that = (MavenMetadata) obj;
         return Objects.equals(this.groupId, that.groupId) &&
             Objects.equals(this.artifactId, that.artifactId) &&
             Objects.equals(this.latest, that.latest) &&

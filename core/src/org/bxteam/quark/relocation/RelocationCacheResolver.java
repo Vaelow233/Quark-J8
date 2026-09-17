@@ -77,7 +77,7 @@ public class RelocationCacheResolver {
                 Files.createDirectories(parentDir);
             }
 
-            Files.writeString(cacheFile, relocationsString, StandardCharsets.UTF_8);
+            Files.write(cacheFile, relocationsString.getBytes(StandardCharsets.UTF_8));
 
         } catch (IOException e) {
             throw new RuntimeException("Failed to save relocation cache for dependency: " + dependency, e);
@@ -112,7 +112,7 @@ public class RelocationCacheResolver {
                 return Optional.empty();
             }
 
-            String content = Files.readString(cacheFile, StandardCharsets.UTF_8);
+            String content = new String(Files.readAllBytes(cacheFile), StandardCharsets.UTF_8);
             return Optional.of(content.trim());
 
         } catch (IOException e) {

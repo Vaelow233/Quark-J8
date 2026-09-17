@@ -1,7 +1,6 @@
 plugins {
     id("java")
-    id("com.gradleup.shadow") version "9.1.0"
-    id("de.eldoria.plugin-yml.bukkit") version "0.7.1"
+    id("com.gradleup.shadow") version "8.3.11"
 }
 
 repositories {
@@ -17,14 +16,6 @@ dependencies {
 }
 
 val pluginName = "BungeeExamplePlugin"
-val packageName = "org.bxteam.example.bungee"
-
-bukkit {
-    main = "$packageName.$pluginName"
-    author = "BX Team"
-    name = pluginName
-    version = "${project.version}"
-}
 
 tasks {
     build {
@@ -32,15 +23,11 @@ tasks {
     }
 
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(8))
     }
 
     jar {
         enabled = false
-    }
-
-    compileJava {
-        options.release.set(17)
     }
 
     shadowJar {

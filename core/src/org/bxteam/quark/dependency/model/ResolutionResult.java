@@ -3,6 +3,8 @@ package org.bxteam.quark.dependency.model;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,8 +23,8 @@ public final class ResolutionResult {
      * @throws NullPointerException if any parameter is null
      */
     public ResolutionResult(@NotNull List<ResolvedDependency> resolvedDependencies, @NotNull List<String> errors) {
-        this.resolvedDependencies = List.copyOf(resolvedDependencies);
-        this.errors = List.copyOf(errors);
+        this.resolvedDependencies = Collections.unmodifiableList(new ArrayList<>(resolvedDependencies));
+        this.errors = Collections.unmodifiableList(new ArrayList<>(errors));
     }
 
     /**

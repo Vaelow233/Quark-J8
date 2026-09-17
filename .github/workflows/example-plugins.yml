@@ -15,10 +15,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Set up JDK 17
+      - name: Set up JDK 8
         uses: actions/setup-java@v5
         with:
-          java-version: '17'
+          java-version: '8'
           distribution: 'temurin'
           cache: gradle
 
@@ -64,28 +64,6 @@ jobs:
             echo "No Gradle plugin JARs found"
           fi
 
-      - name: Prepare Paper plugin artifact
-        if: always()
-        run: |
-          if [ -d "examples/paper/build/libs" ] && [ "$(ls -A examples/paper/build/libs/*.jar 2>/dev/null)" ]; then
-            mkdir -p artifacts/paper
-            cp examples/paper/build/libs/*.jar artifacts/paper/
-            echo "Paper plugin files prepared"
-          else
-            echo "No Paper plugin JARs found"
-          fi
-
-      - name: Prepare Velocity plugin artifact
-        if: always()
-        run: |
-          if [ -d "examples/velocity/build/libs" ] && [ "$(ls -A examples/velocity/build/libs/*.jar 2>/dev/null)" ]; then
-            mkdir -p artifacts/velocity
-            cp examples/velocity/build/libs/*.jar artifacts/velocity/
-            echo "Velocity plugin files prepared"
-          else
-            echo "No Velocity plugin JARs found"
-          fi
-
       - name: Upload Bukkit plugin
         if: always()
         uses: actions/upload-artifact@v6
@@ -110,23 +88,5 @@ jobs:
         with:
           name: GradleExamplePlugin
           path: artifacts/gradle/
-          if-no-files-found: warn
-          retention-days: 30
-
-      - name: Upload Paper plugin
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: PaperExamplePlugin
-          path: artifacts/paper/
-          if-no-files-found: warn
-          retention-days: 30
-
-      - name: Upload Velocity plugin
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: VelocityExamplePlugin
-          path: artifacts/velocity/
           if-no-files-found: warn
           retention-days: 30

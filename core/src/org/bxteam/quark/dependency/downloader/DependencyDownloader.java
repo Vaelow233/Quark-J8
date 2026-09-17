@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -268,7 +269,7 @@ public class DependencyDownloader {
                 return false;
             }
 
-            String content = Files.readString(pomFile).trim();
+            String content = new String(Files.readAllBytes(pomFile), StandardCharsets.UTF_8).trim();
             return !content.isEmpty() &&
                     content.contains("<project") &&
                     !content.toLowerCase().contains("<html");

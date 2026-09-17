@@ -1,7 +1,6 @@
 plugins {
     id("java-library")
-    id("com.gradleup.shadow") version "9.1.0"
-    id("de.eldoria.plugin-yml.bukkit") version "0.7.1"
+    id("com.gradleup.shadow") version "8.3.11"
     id("org.bxteam.quark") // version "1.x.x" // <-- uncomment in your project and set the version
 }
 
@@ -24,15 +23,6 @@ quark {
 }
 
 val pluginName = "QuarkGradleExamplePlugin"
-val packageName = "org.bxteam.example.gradle"
-
-bukkit {
-    main = "$packageName.$pluginName"
-    apiVersion = "1.21"
-    author = "BX Team"
-    name = pluginName
-    version = "${project.version}"
-}
 
 tasks {
     build {
@@ -40,20 +30,24 @@ tasks {
     }
 
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(8))
     }
 
     jar {
         enabled = false
     }
 
-    compileJava {
-        options.release.set(17)
-    }
-
     shadowJar {
         archiveBaseName.set(pluginName)
         archiveClassifier.set("")
         minimize()
+    }
+}
+
+// don't use the following section in your build file
+configurations.configureEach {
+    resolutionStrategy.dependencySubstitution {
+        substitute(module("org.bxteam.quark:bukkit"))
+            .using(project(":quark-bukkit"))
     }
 }

@@ -5,8 +5,7 @@ import org.bxteam.quark.dependency.Dependency;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.requireNonNull;
 
@@ -45,9 +44,9 @@ public final class PomInfo {
         this.groupId = groupId;
         this.artifactId = requireNonNull(artifactId, "Artifact ID cannot be null");
         this.version = version;
-        this.dependencies = List.copyOf(dependencies);
-        this.properties = Map.copyOf(properties);
-        this.dependencyManagement = Map.copyOf(dependencyManagement);
+        this.dependencies = Collections.unmodifiableList(new ArrayList<>(dependencies));
+        this.properties = Collections.unmodifiableMap(new HashMap<>(properties));
+        this.dependencyManagement = Collections.unmodifiableMap(new HashMap<>(dependencyManagement));
         this.parentInfo = parentInfo;
     }
 

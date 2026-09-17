@@ -1,0 +1,4 @@
+name: BungeeExamplePlugin
+main: org.bxteam.example.bungee.BungeeExamplePlugin
+version: 1.3.0
+author: BX Team

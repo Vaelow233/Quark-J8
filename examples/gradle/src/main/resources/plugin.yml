@@ -1,0 +1,5 @@
+name: QuarkGradleExamplePlugin
+main: org.bxteam.example.gradle.QuarkGradleExamplePlugin
+version: 1.3.0
+author: BX Team
+api-version: 1.13

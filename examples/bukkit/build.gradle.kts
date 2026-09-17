@@ -1,7 +1,6 @@
 plugins {
     id("java")
-    id("com.gradleup.shadow") version "9.1.0"
-    id("de.eldoria.plugin-yml.bukkit") version "0.7.1"
+    id("com.gradleup.shadow") version "8.3.11"
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
@@ -18,15 +17,6 @@ dependencies {
 }
 
 val pluginName = "BukkitExamplePlugin"
-val packageName = "org.bxteam.example.bukkit"
-
-bukkit {
-    main = "$packageName.$pluginName"
-    apiVersion = "1.21"
-    author = "BX Team"
-    name = pluginName
-    version = "${project.version}"
-}
 
 tasks {
     build {
@@ -34,15 +24,11 @@ tasks {
     }
 
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(8))
     }
 
     jar {
         enabled = false
-    }
-
-    compileJava {
-        options.release.set(17)
     }
 
     shadowJar {
@@ -52,7 +38,7 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.21.8")
+        minecraftVersion("1.19.4")
         allJvmArgs = listOf("-DPaper.IgnoreJavaVersion=true")
     }
 }

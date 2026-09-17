@@ -9,7 +9,7 @@ on:
 
 jobs:
   set-release-version:
-    uses: BX-Team/Quark/.github/workflows/set-version.yml@master
+    uses: Vaelow233/Quark-J8/.github/workflows/set-version.yml@master
     with:
       version: ${{ inputs.version }}
     secrets: inherit
@@ -57,10 +57,10 @@ jobs:
 
   deploy-maven:
     needs: build
-    uses: BX-Team/Quark/.github/workflows/deploy-maven.yml@master
+    uses: Vaelow233/Quark-J8/.github/workflows/deploy-maven.yml@master
     secrets: inherit
 
   deploy-gradle-plugin:
     needs: build
-    uses: BX-Team/Quark/.github/workflows/deploy-gradle-plugin.yml@master
+    uses: Vaelow233/Quark-J8/.github/workflows/deploy-gradle-plugin.yml@master
     secrets: inherit

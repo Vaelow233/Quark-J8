@@ -1,6 +1,7 @@
 plugins {
     `kotlin-dsl`
-    id("com.gradle.plugin-publish") version "2.2.1"
+    `java-gradle-plugin`
+    `maven-publish`
 }
 
 group = "org.bxteam"
@@ -12,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.gradleup.shadow:com.gradleup.shadow.gradle.plugin:9.1.0")
+    compileOnly("com.gradleup.shadow:com.gradleup.shadow.gradle.plugin:8.3.11")
 }
 
 sourceSets {
